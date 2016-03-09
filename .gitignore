@@ -2,4 +2,4 @@
 *.swo
 *.swp
 env
-venv
+venv/
