@@ -45,8 +45,8 @@ class Application(tornado.web.Application):
         settings = {
             'static_url_prefix': '/static/',
         }
-        connection = pymongo.Connection('127.0.0.1', 27017)
-        self.db = connection.chat
+        client = MongoClient('localhost', 27017)
+        self.db = client.chat
         handlers = (
             (r'/', MainHandler),
             (r'/websocket/?', WebSocket),
