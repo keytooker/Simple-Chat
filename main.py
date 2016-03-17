@@ -8,7 +8,7 @@ import tornado.options
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello world")
+        self.write("Hello Heroku from me!")
  
 def main():
     application = tornado.web.Application([
