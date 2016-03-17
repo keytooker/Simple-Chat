@@ -10,7 +10,7 @@ import tornado.options
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r"/([^/]+)?", MainHandler)
+            (r"/", MainHandler)
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -24,6 +24,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("Hello Heroku from mivi!")
         items = ["Item 1", "Item 2", "Item 3"]
         self.render("main.html", title="Super title", items=items)
+        self.render("template.html", title="Super title", items=items)
         
 def main():
     http_server = tornado.httpserver.HTTPServer(Application())
