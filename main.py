@@ -10,7 +10,7 @@ import tornado.options
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r"/", MainHandler)
+            (r"/([^/]+)?", MainHandler)
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
