@@ -24,7 +24,6 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("Hello Heroku from mivi!")
         items = ["Item 1", "Item 2", "Item 3"]
         self.render("main.html", title="Super title", items=items)
-        self.render("template.html", title="Super title", items=items)
         
 def main():
     http_server = tornado.httpserver.HTTPServer(Application())
