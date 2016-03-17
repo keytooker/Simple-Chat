@@ -21,7 +21,9 @@ class Application(tornado.web.Application):
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello Heroku from mivi!")
+        items = ["Item 1", "Item 2", "Item 3"]
+        self.render("template.html", title="My title", items=items)
+        #self.write("Hello Heroku from mivi!")
         
 def main():
     application = tornado.web.Application([
