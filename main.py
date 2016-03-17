@@ -6,15 +6,6 @@ import tornado.web
 import tornado.escape
 import tornado.options
 
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        #self.write("Hello Heroku from mivi!")
-        self.render(
-            "main.html",
-            page_title='Heroke Funtimes',
-            page_heading='Hi!'
-        )
-
 # application settings and handle mapping info
 class Application(tornado.web.Application):
     def __init__(self):
@@ -28,6 +19,10 @@ class Application(tornado.web.Application):
         )
         tornado.web.Application.__init__(self, handlers, **settings)
 
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write("Hello Heroku from mivi!")
+        
 def main():
     application = tornado.web.Application([
         (r"/", MainHandler),
