@@ -20,7 +20,7 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers, **settings)
         
 class MainHandler(tornado.web.RequestHandler):
-    def get(self):
+    def get(self, q):
         self.write("Hello Heroku from mivi!")
         items = ["Item 1", "Item 2", "Item 3"]
         self.render("main.html", title="Super title", items=items)
