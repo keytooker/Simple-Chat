@@ -10,7 +10,7 @@ import tornado.options
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r"/", MainHandler)
+            (r"/([^/]+)?", MainHandler)
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -26,9 +26,6 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("main.html", title="Super title", items=items)
         
 def main():
-#    application = tornado.web.Application([
-#        (r"/", MainHandler),
-#    ])
     http_server = tornado.httpserver.HTTPServer(Application())
     port = int(os.environ.get("PORT", 5000))
     http_server.listen(port)
