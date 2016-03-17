@@ -8,9 +8,7 @@ import tornado.options
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        items = ["Item 1", "Item 2", "Item 3"]
-        self.render("main.html", title="My title", items=items)
-        #self.write("Hello Heroku from mivi!")
+        self.write("Hello Heroku from mivi!")
         
 def main():
     application = tornado.web.Application([
