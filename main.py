@@ -6,19 +6,6 @@ import tornado.web
 import tornado.escape
 import tornado.options
 
-# application settings and handle mapping info
-class Application(tornado.web.Application):
-    def __init__(self):
-        handlers = [
-            (r"/([^/]+)?", MainHandler)
-        ]
-        settings = dict(
-            template_path=os.path.join(os.path.dirname(__file__), "templates"),
-            static_path=os.path.join(os.path.dirname(__file__), "static"),
-            debug=True,
-        )
-        tornado.web.Application.__init__(self, handlers, **settings)
-
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         items = ["Item 1", "Item 2", "Item 3"]
